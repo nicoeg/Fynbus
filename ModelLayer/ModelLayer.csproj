@@ -39,7 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Firm.cs" />
+    <Compile Include="DatabaseFacades\CarDatabaseFacade.cs" />
+    <Compile Include="DatabaseFacades\CompanyDatabaseFacade.cs" />
+    <Compile Include="DatabaseFacades\DatabaseConnection.cs" />
+    <Compile Include="DatabaseFacades\FirmDatabaseFacade.cs" />
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Firm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
