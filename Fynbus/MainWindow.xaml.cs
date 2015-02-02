@@ -57,6 +57,7 @@ namespace Fynbus {
                 Firm firm = (Firm)cmd.DataContext;
                 Firms.SelectedItem = firm;
                 //MessageBox.Show("Tlf: " + firm.Telephone);
+                // fris er bøs
             }
         }
 
