@@ -22,6 +22,8 @@ namespace ModelLayer.DatabaseFacades
                 SqlCommand command = new SqlCommand("GetFirmsFromCompany", connection);
                 command.CommandType = CommandType.StoredProcedure;
 
+                command.Parameters.Add("@Company", Company);
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows) {
