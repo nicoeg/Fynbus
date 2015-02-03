@@ -69,8 +69,8 @@ namespace ModelLayer {
 
         private void ShowOffers_Click(object sender, RoutedEventArgs e) {
             Button cmd = (Button)sender;
+
             if (cmd.DataContext is ModelLayer.Models.Firm) {
-             
                 ModelLayer.Models.Firm firm = (ModelLayer.Models.Firm)cmd.DataContext;
                 Firms.SelectedItem = firm;
                 MessageBox.Show("Tlf: " + firm.Telephone);
