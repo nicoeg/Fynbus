@@ -31,7 +31,7 @@ namespace ModelLayer.DatabaseFacades
                 {
                     while (reader.Read())
                     {
-                        tempCompanyList.Add(new Company((string)reader["Name"]));
+                        tempCompanyList.Add(new Company(int.Parse((string)reader["id"]), (string)reader["Name"]));
                     }
                 }
             }
