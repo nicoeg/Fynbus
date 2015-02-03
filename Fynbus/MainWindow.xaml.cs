@@ -24,7 +24,9 @@ namespace ModelLayer {
 
         List<Button> _companyButtons;
         public MainWindow() {
+
             InitializeComponent();
+
             _controller = new Controller();
 
             MakeTabs();
