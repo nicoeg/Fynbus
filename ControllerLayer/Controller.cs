@@ -16,17 +16,19 @@ namespace ControllerLayer
 
         }
 
-        public List<string> GetAllCompanyNames()
+        public Dictionary<int, string> GetAllCompanies()
         {
-            List<string> tempStringList = new List<string>();
+            Dictionary<int, string> tempCompanyDictionary = new Dictionary<int, string>();
 
-            foreach (Company company in CompanyDatabaseFacade.GetAllCompanyNames())
+            foreach (Company company in CompanyDatabaseFacade.GetAllCompanies())
             {
-                tempStringList.Add(company.Name);
+                tempCompanyDictionary.Add(company.id, company.Name);
             }
 
-            return tempStringList;
+            return tempCompanyDictionary;
         }
+
+
 
         public List<Firm> GetFirmsFromCompany(int Company) {
             return FirmDatabaseFacade.GetFirmsFromCompany(Company);

@@ -10,9 +10,9 @@ namespace ModelLayer.Models
     {
 
         private string _Name;
-        private string _id;
+        private int _id;
 
-        public string id { get { return _id; } }
+        public int id { get { return _id; } }
         public string Name { get { return _Name; } }
 
         public Company()

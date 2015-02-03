@@ -12,7 +12,7 @@ namespace ModelLayer.DatabaseFacades
     public static class CompanyDatabaseFacade
     {
 
-        public static List<Company> GetAllCompanyNames()
+        public static List<Company> GetAllCompanies()
         {
             List<Company> tempCompanyList = new List<Company>();
 
