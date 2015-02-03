@@ -44,8 +44,16 @@ namespace ModelLayer {
         }
 
         private void AddCompany(string name) {
-            _companyButtons.Add(new Button() { Content = name });
+            Button button = new Button() { Content = name };
+            button.Click += new RoutedEventHandler(this.Tab_Click);
+            _companyButtons.Add(button);
         }
+
+        private void Tab_Click(object sender, RoutedEventArgs e) {
+            Button button = (Button)sender;
+            MessageBox.Show(button.Name);
+        }
+
         private void MakeTabs() {
             _companyButtons = new List<Button>();
 
