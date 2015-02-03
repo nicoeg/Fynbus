@@ -31,6 +31,10 @@ namespace ModelLayer {
 
             MakeTabs();
 
+            ObservableCollection<ModelLayer.Models.Firm> firms = new ObservableCollection<ModelLayer.Models.Firm>();
+            foreach (ModelLayer.Models.Firm firm in _controller.GetFirmsFromCompany(1)) {
+                firms.Add(firm);
+            }
             /*firms = new ObservableCollection<Firm>() {
                 new Firm(24343543, "Vognmanden.com", 3343534),
                 new Firm(2324434, "Vognmand Harding Poulsen", 43435),
@@ -65,11 +69,11 @@ namespace ModelLayer {
 
         private void ShowOffers_Click(object sender, RoutedEventArgs e) {
             Button cmd = (Button)sender;
-            if (cmd.DataContext is Firm) {
+            if (cmd.DataContext is ModelLayer.Models.Firm) {
              
-                Firm firm = (Firm)cmd.DataContext;
+                ModelLayer.Models.Firm firm = (ModelLayer.Models.Firm)cmd.DataContext;
                 Firms.SelectedItem = firm;
-                //MessageBox.Show("Tlf: " + firm.Telephone);
+                MessageBox.Show("Tlf: " + firm.Telephone);
                 // fris er bøs
             }
         }
