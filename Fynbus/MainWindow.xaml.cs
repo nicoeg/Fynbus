@@ -31,16 +31,16 @@ namespace ModelLayer {
 
             MakeTabs();
 
-            ObservableCollection<ModelLayer.Models.Firm> firms = new ObservableCollection<ModelLayer.Models.Firm>();
-            foreach (ModelLayer.Models.Firm firm in _controller.GetFirmsFromCompany(1)) {
+            ObservableCollection<ModelLayer.Models.Firm> firms = new ObservableCollection<ModelLayer.Models.Firm>(_controller.GetFirmsFromCompany(1));
+            /*foreach (ModelLayer.Models.Firm firm in _controller.GetFirmsFromCompany(1)) {
                 firms.Add(firm);
             }
-            /*firms = new ObservableCollection<Firm>() {
+            firms = new ObservableCollection<Firm>() {
                 new Firm(24343543, "Vognmanden.com", 3343534),
                 new Firm(2324434, "Vognmand Harding Poulsen", 43435),
                 new Firm(434535, "Erik Nielsen & Søn transport", 3432)
-            };
-            Firms.DataContext = firms;*/
+            };*/
+            Firms.DataContext = firms;
         }
 
         private void AddCompany(string name) {
@@ -74,7 +74,7 @@ namespace ModelLayer {
                 ModelLayer.Models.Firm firm = (ModelLayer.Models.Firm)cmd.DataContext;
                 Firms.SelectedItem = firm;
                 MessageBox.Show("Tlf: " + firm.Telephone);
-                // fris er bøs
+                // Patrick er bøs
             }
         }
 
