@@ -65,12 +65,13 @@ namespace ModelLayer {
 
         private void ShowOffers_Click(object sender, RoutedEventArgs e) {
             Button cmd = (Button)sender;
-            /*if (cmd.DataContext is Firm) {
+            if (cmd.DataContext is Firm) {
+             
                 Firm firm = (Firm)cmd.DataContext;
                 Firms.SelectedItem = firm;
                 //MessageBox.Show("Tlf: " + firm.Telephone);
                 // fris er bøs
-            }*/
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
