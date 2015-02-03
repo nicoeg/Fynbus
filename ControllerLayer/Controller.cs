@@ -28,5 +28,8 @@ namespace ControllerLayer
             return tempStringList;
         }
 
+        public List<Firm> GetFirmsFromCompany(int Company) {
+            return FirmDatabaseFacade.GetFirmsFromCompany(Company);
+        }
     }
 }
