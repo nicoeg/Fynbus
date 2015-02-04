@@ -29,9 +29,9 @@ namespace ModelLayer {
 
             _controller = new Controller();
 
-            // Making tabs for companies
             MakeTabs();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             // Showing firms for first company
             ShowFirms(1);
@@ -41,6 +41,8 @@ namespace ModelLayer {
             ObservableCollection<ModelLayer.Models.Firm> firms = new ObservableCollection<ModelLayer.Models.Firm>(_controller.GetFirmsFromCompany(company));
 =======
             // Kan laves i controlleren
+=======
+>>>>>>> parent of 70ae1f5... Showing firms when clicking companies
             ObservableCollection<ModelLayer.Models.Firm> firms = new ObservableCollection<ModelLayer.Models.Firm>(_controller.GetFirmsFromCompany(1));
             /*foreach (ModelLayer.Models.Firm firm in _controller.GetFirmsFromCompany(1)) {
                 firms.Add(firm);
@@ -50,6 +52,7 @@ namespace ModelLayer {
                 new Firm(2324434, "Vognmand Harding Poulsen", 43435),
                 new Firm(434535, "Erik Nielsen & Søn transport", 3432)
             };*/
+<<<<<<< HEAD
 >>>>>>> origin/master
             Firms.DataContext = firms;
         }
@@ -60,6 +63,13 @@ namespace ModelLayer {
 =======
             Button button = new Button() { Name= "id"+id, Content = name };
 >>>>>>> origin/master
+=======
+            Firms.DataContext = firms;
+        }
+
+        private void AddCompany(string name) {
+            Button button = new Button() { Content = name };
+>>>>>>> parent of 70ae1f5... Showing firms when clicking companies
             button.Click += new RoutedEventHandler(this.Tab_Click);
             _companyButtons.Add(button);
         }
@@ -67,12 +77,16 @@ namespace ModelLayer {
         private void Tab_Click(object sender, RoutedEventArgs e) {
             Button button = (Button)sender;
 <<<<<<< HEAD
+<<<<<<< HEAD
             int company = int.Parse(button.Name.Replace("id", ""));
 
             ShowFirms(company);
 =======
             MessageBox.Show((string)button.Name);
 >>>>>>> origin/master
+=======
+            MessageBox.Show(button.Name);
+>>>>>>> parent of 70ae1f5... Showing firms when clicking companies
         }
 
         private void MakeTabs() {
@@ -91,6 +105,7 @@ namespace ModelLayer {
         private void MakeButtons()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             foreach (KeyValuePair<int, string> company in _controller.GetAllCompanies())
             {
                 AddCompany(company.Key, company.Value);
@@ -99,6 +114,11 @@ namespace ModelLayer {
             {
                 AddCompany(kvp.Key, kvp.Value);
 >>>>>>> origin/master
+=======
+            foreach (string companyName in _controller.GetAllCompanyNames())
+            {
+                AddCompany(companyName);
+>>>>>>> parent of 70ae1f5... Showing firms when clicking companies
             }
         }
 
@@ -111,6 +131,10 @@ namespace ModelLayer {
                 Firms.SelectedItem = firm;
                 MessageBox.Show("Tlf: " + firm.Telephone);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            
         }
     }
 }
