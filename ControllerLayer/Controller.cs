@@ -28,8 +28,6 @@ namespace ControllerLayer
             return tempCompanyDictionary;
         }
 
-
-
         public List<Firm> GetFirmsFromCompany(int Company) {
             return FirmDatabaseFacade.GetFirmsFromCompany(Company);
         }

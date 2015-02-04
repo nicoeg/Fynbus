@@ -80,7 +80,6 @@ namespace ModelLayer {
                 ModelLayer.Models.Firm firm = (ModelLayer.Models.Firm)cmd.DataContext;
                 Firms.SelectedItem = firm;
                 MessageBox.Show("Tlf: " + firm.Telephone);
-                // Patrick er bøs
             }
         }
     }
