@@ -8,7 +8,7 @@ using ModelLayer.Models;
 
 namespace ControllerLayer
 {
-    public class Controller
+    public class Controller 
     {
 
         public Controller()
