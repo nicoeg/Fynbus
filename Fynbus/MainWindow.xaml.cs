@@ -29,29 +29,29 @@ namespace ModelLayer {
 
             _controller = new Controller();
 
+            // Making tabs for companies
             MakeTabs();
 
-            ObservableCollection<ModelLayer.Models.Firm> firms = new ObservableCollection<ModelLayer.Models.Firm>(_controller.GetFirmsFromCompany(1));
-            /*foreach (ModelLayer.Models.Firm firm in _controller.GetFirmsFromCompany(1)) {
-                firms.Add(firm);
-            }
-            firms = new ObservableCollection<Firm>() {
-                new Firm(24343543, "Vognmanden.com", 3343534),
-                new Firm(2324434, "Vognmand Harding Poulsen", 43435),
-                new Firm(434535, "Erik Nielsen & Søn transport", 3432)
-            };*/
+            // Showing firms for first company
+            ShowFirms(1);
+        }
+
+        private void ShowFirms(int company) {
+            ObservableCollection<ModelLayer.Models.Firm> firms = new ObservableCollection<ModelLayer.Models.Firm>(_controller.GetFirmsFromCompany(company));
             Firms.DataContext = firms;
         }
 
-        private void AddCompany(string name) {
-            Button button = new Button() { Content = name };
+        private void AddCompany(int id, string name) {
+            Button button = new Button() { Content = name, Name="id"+id };
             button.Click += new RoutedEventHandler(this.Tab_Click);
             _companyButtons.Add(button);
         }
 
         private void Tab_Click(object sender, RoutedEventArgs e) {
             Button button = (Button)sender;
-            MessageBox.Show(button.Name);
+            int company = int.Parse(button.Name.Replace("id", ""));
+
+            ShowFirms(company);
         }
 
         private void MakeTabs() {
@@ -69,9 +69,9 @@ namespace ModelLayer {
 
         private void MakeButtons()
         {
-            foreach (string companyName in _controller.GetAllCompanyNames())
+            foreach (KeyValuePair<int, string> company in _controller.GetAllCompanies())
             {
-                AddCompany(companyName);
+                AddCompany(company.Key, company.Value);
             }
         }
 
@@ -84,10 +84,6 @@ namespace ModelLayer {
                 MessageBox.Show("Tlf: " + firm.Telephone);
                 // Patrick er bøs
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            
         }
     }
 }
