@@ -31,6 +31,7 @@ namespace ModelLayer {
 
             MakeTabs();
 
+            // Kan laves i controlleren
             ObservableCollection<ModelLayer.Models.Firm> firms = new ObservableCollection<ModelLayer.Models.Firm>(_controller.GetFirmsFromCompany(1));
             /*foreach (ModelLayer.Models.Firm firm in _controller.GetFirmsFromCompany(1)) {
                 firms.Add(firm);
@@ -43,15 +44,15 @@ namespace ModelLayer {
             Firms.DataContext = firms;
         }
 
-        private void AddCompany(string name) {
-            Button button = new Button() { Content = name };
+        private void AddCompany(int id, string name) {
+            Button button = new Button() { Name= "id"+id, Content = name };
             button.Click += new RoutedEventHandler(this.Tab_Click);
             _companyButtons.Add(button);
         }
 
         private void Tab_Click(object sender, RoutedEventArgs e) {
             Button button = (Button)sender;
-            MessageBox.Show(button.Name);
+            MessageBox.Show((string)button.Name);
         }
 
         private void MakeTabs() {
@@ -69,20 +70,20 @@ namespace ModelLayer {
 
         private void MakeButtons()
         {
-            foreach (string companyName in _controller.GetAllCompanyNames())
+            foreach (KeyValuePair<int, string> kvp in _controller.GetAllCompanies())
             {
-                AddCompany(companyName);
+                AddCompany(kvp.Key, kvp.Value);
             }
         }
 
         private void ShowOffers_Click(object sender, RoutedEventArgs e) {
             Button cmd = (Button)sender;
 
+            // Skal fixe så den er i controller
             if (cmd.DataContext is ModelLayer.Models.Firm) {
                 ModelLayer.Models.Firm firm = (ModelLayer.Models.Firm)cmd.DataContext;
                 Firms.SelectedItem = firm;
                 MessageBox.Show("Tlf: " + firm.Telephone);
-                // Patrick er bøs
             }
         }
 
