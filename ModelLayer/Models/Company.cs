@@ -23,6 +23,7 @@ namespace ModelLayer.Models
         public Company(int id, string Name)
         {
             this._Name = Name;
+            this._id = id;
         }
     }
 }

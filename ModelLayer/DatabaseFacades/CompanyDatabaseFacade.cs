@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +31,7 @@ namespace ModelLayer.DatabaseFacades
                 {
                     while (reader.Read())
                     {
-                        tempCompanyList.Add(new Company(int.Parse(""+reader["id"]), (string)reader["Name"]));
+                        tempCompanyList.Add(new Company((int)reader["id"], (string)reader["Name"]));
                     }
                 }
             }
